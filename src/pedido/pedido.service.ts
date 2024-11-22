@@ -77,7 +77,7 @@ export class PedidoService {
     const pedidos = await this.pedidoModel.find().populate('pizzas').exec();
     return pedidos.filter((pedido) => {
       const fecha = new Date(pedido.fechaCompra);
-      return fecha.getDay() === indiceDia;
+      return fecha.getDay() + 1 === indiceDia;
     });
   }
 }
